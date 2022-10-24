@@ -1,0 +1,51 @@
+class ParkingActivity : AppCompatActivity() {
+    private val TAG = ParkingActivity::class.java.simpleName
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_parking)
+
+        // 程式開始
+        val url = "http://data.tycg.gov.tw/opendata/datalist/datasetMeta/download?id=f4cc0b12-86ac-40f9-8745-885bddc18f79&rid=0daad6e6-0632-44f5-bd25-5e1de1e9146f"
+
+        // =================== okhttp連線設定 ===================
+        val okHttpClient = OkHttpClient()   // 實例化一個 Client
+        // 建立 Request GET 方法 不需要傳送資料，直接透過請求的 API 網址取得需要的資料
+        val request = Request.Builder()
+            .url(url)
+            .build()
+        // 取得 Client 中的 Call 對象並帶入建立好的 Request
+        val call = okHttpClient.newCall(request)
+
+        // 異步請求
+        call.enqueue(object : Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                Log.d(TAG, "onFailure: $e")   // 請求失敗顯示的訊息
+            }
+
+            // 請求成功後處理回來的 Response
+            override fun onResponse(call: Call, response: Response) {
+                val responseStr = response.body?.string()
+//                val itemList = JSONObject(responseStr)
+                Log.d(TAG, "onResponse: $response")
+                // 需變更 UI 介面就需要用 runOnUiThread 方法由主執行緒處理
+                Thread{
+                    runOnUiThread {
+                        parking_info.text = responseStr
+                    }
+                }.start()
+            }
+        })
+        // =================== okhttp連線設定 ===================
+
+        // =================== Gson設定 ===================
+
+
+        // =================== Gson設定 ===================
+
+        AlertDialog.Builder(this)
+            .setTitle("Sing up")
+            .setMessage("Account create")
+            .setPositiveButton("OK"){dialog, which ->
+            }.show()
+    }
+}

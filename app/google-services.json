@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "494174484111",
+    "project_id": "shop-dcaa6",
+    "storage_bucket": "shop-dcaa6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494174484111:android:b1567a2bc44dc4602c62fa",
+        "android_client_info": {
+          "package_name": "com.ricks.shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494174484111-cnl5rkdc0nncrpo2lcpcp9ro7i7gcsk4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1t2vPstLY8Y9pM0C_82C9q93usQqRgHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494174484111-cnl5rkdc0nncrpo2lcpcp9ro7i7gcsk4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
